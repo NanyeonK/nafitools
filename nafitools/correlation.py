@@ -15,6 +15,12 @@ def cal_corr(group, var1, var2, option='all'):
     Returns:
         pd.Series: A series containing the correlation between the two variables.
     """
+    # Drop NaN values for the variables being correlated
+    group = group[[var1, var2]].dropna()
+    
+    if len(group) < 2:
+        return pd.Series({'Pearson': np.nan, 'Spearman': np.nan})
+
     if option == 'pearson':
         pearson_corr, _ = pearsonr(group[var1], group[var2])
         return pd.Series({'Pearson': pearson_corr})
@@ -27,7 +33,7 @@ def cal_corr(group, var1, var2, option='all'):
         return pd.Series({'Pearson': pearson_corr, 'Spearman': spearman_corr})
     else:
         raise ValueError("Invalid option for correlation type. Choose from 'pearson', 'spearman', or 'all'.")
-    
+
 def cal_per_corr(df, time_column, specific_date=None):
     """
     Calculate Pearson and Spearman correlations for each time period for all pairs of variables.
@@ -42,7 +48,7 @@ def cal_per_corr(df, time_column, specific_date=None):
     """
     if specific_date:
         df = df[df[time_column] == specific_date]
-    
+
     variables = [col for col in df.columns if col != time_column]
     correlations = []
 

@@ -168,7 +168,7 @@ class UnivariatePortfolioAnalyzer:
         diff_values['diff'] = diff_values[high_portfolio] - diff_values[low_portfolio]
         
         return avg_values, diff_values[['diff']].reset_index()
-
+    
     def calculate_average_portfolio_values(self, portfolio_column, value_column, weight_column=None):
         """
         Calculate average values for each portfolio and the difference between the highest and lowest portfolios.
@@ -248,3 +248,5 @@ class UnivariatePortfolioAnalyzer:
         summary = avg_values.mean().to_frame(name='mean').T
         summary[self.time_column] = 'Mean'
         return summary
+
+    def

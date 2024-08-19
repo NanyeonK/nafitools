@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='mypackage',
+    name='nafitools',
     version='0.1.0',
     packages=find_packages(),
     install_requires=[
@@ -17,8 +17,8 @@ setup(
             # 필요한 경우 커맨드라인 스크립트 정의
         ],
     },
-    author='Your Name',
-    author_email='your.email@example.com',
+    author='Yeonchan Kang',
+    author_email='nanyeon99@gmail.com',
     description='A description of your package',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',

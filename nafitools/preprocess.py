@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+
 # Truncate
 def truncate(data, column=False, lower=0.01, upper=0.99, copy=True):
     """
@@ -121,6 +122,7 @@ def winsorize(data, column=False, lower=0.01, upper=0.99, copy=True):
 ## I recommend to see 
 
 # missing value report
+
 def report_nan_counts_per_col(data, visualize=False):
     """
     Reports and returns the number of NaN values in each column of the given DataFrame.
